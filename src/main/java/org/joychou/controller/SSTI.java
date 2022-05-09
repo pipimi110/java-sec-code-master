@@ -186,13 +186,27 @@ public class SSTI {
     public void thymeleaf_ssti_2(@PathVariable String poc) {
         System.out.println("222");
     }
+    @RequestMapping("/thymeleaf_ssti_3/{poc}")
+    public String thymeleaf_ssti_3(@PathVariable String poc) {
+        System.out.println("222");
+        return "qwe";//string类型会设置为模板名,不存在漏洞
+    }
+    @RequestMapping("/thymeleaf_ssti_4/{poc}")
+    public Object thymeleaf_ssti_4(@PathVariable String poc) {
+        System.out.println("222");
+        return new Page();//不是string,会解析路径作为模板名,存在漏洞
+    }
 
 
     public static void main(String[] args) {
 //    	ssti1();
 //        ssti2();
 //        freemarker_ssti_str();
-        velocity_ssti_str();
+//        velocity_ssti_str();
+//        System.out.println("" instanceof String);
     }
+
+}
+class Page{
 
 }
