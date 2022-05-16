@@ -181,6 +181,18 @@ public class SSTI {
         }
         return "qwe/"+tplname;
     }
+    @RequestMapping("/thymeleaf_ssti_11")
+    public String thymeleaf_ssti_11(String tplname) {
+        String safe = "redirect:"+tplname;
+        return safe;
+    }
+    @RequestMapping("/thymeleaf_ssti_12")
+    public String thymeleaf_ssti_12(String tplname) {
+        if(tplname.indexOf("${")!=-1){
+            tplname = "";
+        }
+        return tplname;
+    }
 //    @ResponseBody//预防
     @RequestMapping("/thymeleaf_ssti_2/{poc}")
     public void thymeleaf_ssti_2(@PathVariable String poc) {
@@ -196,6 +208,7 @@ public class SSTI {
         System.out.println("222");
         return new Page();//不是string,会解析路径作为模板名,存在漏洞
     }
+
 
 
     public static void main(String[] args) {
